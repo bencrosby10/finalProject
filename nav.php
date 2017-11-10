@@ -10,6 +10,22 @@
         print '</li>';
 
         print '<li class="';
+            if ($path_parts['filename'] == "staff") {
+                print ' activePage ';
+            }
+            print '">';
+        print '<a href="staff.php">Staff</a>';
+        print '</li>';
+
+        print '<li class="';
+            if ($path_parts['filename'] == "events") {
+                print ' activePage ';
+            }
+            print '">';
+            print '<a href="events.php">Events</a>';
+        print '</li>';
+
+        print '<li class="';
             if ($path_parts['filename'] == "form") {
                 print ' activePage ';
             }
