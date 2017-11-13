@@ -8,6 +8,7 @@
 
 body {
     background-color: #582019;
+
 }
 
 header {
@@ -31,7 +32,10 @@ header img {
 
 article {
     background-color: #f2e6b9;
-
+    margin: 0;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
 }
 
 footer {
@@ -61,9 +65,28 @@ h2 {
     font-weight: 200;
 }
 
+h3 a{
+    font-size: 2em;
+    padding: 25%;
+}
+
 h3 {
     text-align: center;
     font-size: smaller;
+}
+
+button {
+    color: white;
+    margin: 10px 25% 10px 25%;
+    border: none;
+    background-color: #ff5a48;
+    width: 50%;
+    font-size: larger;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #853025;
 }
 
 
@@ -75,7 +98,6 @@ h3 {
 }
 
 .index {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
@@ -89,7 +111,6 @@ h3 {
 }
 
 .staff {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
@@ -103,7 +124,6 @@ h3 {
 }
 
 .events {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
@@ -117,7 +137,6 @@ h3 {
 }
 
 .form {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
@@ -131,7 +150,6 @@ h3 {
 }
 
 .gallery {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
@@ -145,11 +163,11 @@ h3 {
 }
 
 .jrSailing {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
 }
+
 #dinner-form {
     font-family: 'Raleway', sans-serif;
     margin: 0;
@@ -158,11 +176,25 @@ h3 {
 }
 
 .dinner-form {
-    background-color: #f2e6b9;
     margin: 0;
     display: inline-block;
     width: 100%;
 }
+
+#apply {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    width:100%;
+}
+
+.apply {
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+
 
 /* ----------------------  Staff page ---------------------- */
 
@@ -265,6 +297,13 @@ legend {
     color: black;
 }
 
+textarea {
+    text-align: left;
+    height: 10em;
+    width: 50%;
+    vertical-align: top;
+}
+
 /*removed #form prefix*/
 input:focus, textarea:focus{
     border: 2px solid #ce4400;
@@ -272,7 +311,7 @@ input:focus, textarea:focus{
 }
 
 .button:hover {
-    background-color: #00A147;
+    background-color: #8f3428;
 }
 
 .buttons { /* Field set buttons */
@@ -282,10 +321,10 @@ input:focus, textarea:focus{
 .button {
     color: white;
     border: none;
-    background-color: #00a147;
+    background-color: #ff5a48;
     width: 50%;
     font-size: larger;
-
+    border-radius: 3px;
 }
 
 .radio {
@@ -307,10 +346,6 @@ input:focus, textarea:focus{
     text-align: center;
     width: 7em;
     color: black;
-}
-
-textarea {
-    text-align: left;
 }
 
 .check-field {
@@ -336,25 +371,7 @@ textarea {
     text-decoration: underline;
 }
 
-#txtFirstName {
-    margin-right: 2em;
-}
-
-#txtEmail {
-    width: 15em;
-}
-
-#txtPhoneNumber {
-    width: 15em;
-}
-
 #questions {
-    vertical-align: top;
-}
-
-#txtQuestions {
-    height: 10em;
-    width: 50%;
     vertical-align: top;
 }
 

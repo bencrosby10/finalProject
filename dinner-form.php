@@ -311,7 +311,11 @@
 
 
             if($mailed) {
-                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, $subject, $message);
+                $adminMessage = "<h1>New submission from Maple Hill YC contact form.....";
+                $adminMessage .= "<p>-----------------------------------------------------</p><p> </p><p> </p>";
+                $adminMessage .= $message;
+
+                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: NEW Dinner Reservation", $adminMessage);
             }
 
         }

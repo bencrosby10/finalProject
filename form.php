@@ -228,7 +228,7 @@
             $message = '<h1>Maple Hill Yacht Club | Contact</h1>';
 
             $message .= '<p>Thank-you, ' . ucfirst($firstName) . " " . ucfirst($lastName) . "<br>" . "We will respond to your email shortly<p>";
-
+            $message .= "<p>Sincerely, Maple Hill Yacht Club</p>";
 
 
             $message .= '<h3>Your Information</h3>';
@@ -267,7 +267,11 @@
             $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
 
             if($mailed) {
-                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, $subject, $message);
+                $adminMessage = "<h1>New submission from Maple Hill YC contact form.....";
+                $adminMessage .= "<p>-----------------------------------------------------</p><p> </p><p> </p>";
+                $adminMessage .= $message;
+
+                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Contact", $adminMessage);
             }
 
         }
@@ -355,6 +359,7 @@
                                value="<?php print ucfirst($lastName); ?>"
                         >
                     </p>
+
                     <p>
                         <label class="required text-field" for="txtEmail">Email</label>
                         <input
@@ -380,26 +385,26 @@
                     <legend>Question</legend>
                     <h3>Please, tell us your concerns</h3>
                     <p>
-                        <textarea <?php if ($questionsERROR) print 'class="mistake"'; ?> id="txtQuestions" name="txtQuestions" onfocus="this.select()" tabindex="200"><?php print $questions; ?></textarea>
-                    </p>
+                    <textarea <?php if ($questionsERROR) print 'class="mistake"'; ?> id="txtQuestions" name="txtQuestions" onfocus="this.select()" tabindex="200"><?php print $questions; ?></textarea>
+                </p>
 
-                    <h3>Specify a reason for contact</h3>
-                    <p class="listbox <?php if ($reasonERROR) print ' mistake'; ?>">
-                        <select id="lstReason"
-                                name="lstReason"
-                                tabindex="320" >
-                            <option <?php if($reason=="Questions") print " selected "; ?>
-                                    value="Questions">Questions</option>
+                <h3>Specify a reason for contact</h3>
+                <p class="listbox <?php if ($reasonERROR) print ' mistake'; ?>">
+                    <select id="lstReason"
+                            name="lstReason"
+                            tabindex="320" >
+                        <option <?php if($reason=="Questions") print " selected "; ?>
+                                value="Questions">Questions</option>
 
-                            <option <?php if($reason=="More Information") print " selected "; ?>
-                                    value="More Information">More Information</option>
+                        <option <?php if($reason=="More Information") print " selected "; ?>
+                                value="More Information">More Information</option>
 
-                            <option <?php if($reason=="News") print " selected "; ?>
-                                    value="News">News</option>
-                            <option <?php if($reason=="Other") print " selected "; ?>
-                                    value="Other">Other</option>
-                        </select>
-                    </p>
+                        <option <?php if($reason=="News") print " selected "; ?>
+                                value="News">News</option>
+                        <option <?php if($reason=="Other") print " selected "; ?>
+                                value="Other">Other</option>
+                    </select>
+                </p>
                 </fieldset>
 
 
