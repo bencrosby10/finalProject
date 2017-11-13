@@ -37,6 +37,7 @@ article {
 footer {
     background-color: #582019;
     text-align: center;
+    padding: 10px 10px 10px 10px;
 }
 
 footer p {
@@ -61,7 +62,8 @@ h2 {
 }
 
 h3 {
-
+    text-align: center;
+    font-size: smaller;
 }
 
 
@@ -148,22 +150,38 @@ h3 {
     display: inline-block;
     width: 100%;
 }
-
-/* Staff page */
-
-.staff-element div {
-    position: relative;
-}
-.grey {
-    color: lightgray;
+#dinner-form {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    display: inline-block;
+    width:100%;
 }
 
+.dinner-form {
+    background-color: #f2e6b9;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+/* ----------------------  Staff page ---------------------- */
+
+.staff-list {
+    width: 100%;
+    text-align: center;
+    padding: 0 20% 0 20%;
+    align-items: center;
+    align-content: center;
+}
 
 .staff-element {
-    width: 25%;
-    text-align: center;
     float: left;
     background-color: #8b3f00;
+    border: solid 2px #ff6545;
+    margin: 10px 10px 10px 10px;
+    width: 300px;
+    height: 300px;
+
 }
 h1.staff-element {
     position: absolute;
@@ -179,8 +197,12 @@ h1.staff-element {
     margin-right: 1.0em;
 }
 
+.grey {
+    color: lightgray;
+}
 
-/* NAV styles */
+
+/* ---------------------- NAV styles ---------------------- */
 
 nav ol {
     text-align: center;
@@ -195,10 +217,12 @@ nav ol li{
     padding: 4%;
 
 }
+
 nav a {
     text-decoration: none;
     color: #9c5b19;
 }
+
 nav a:hover {
     color: #c9761e;
 }
@@ -209,11 +233,11 @@ nav a:hover {
 }
 
 
-/* FORM */
+/* ---------------------- FORM ----------------------*/
 
 form {
     background-color: #f2e6b9;
-
+    padding: 0 5% 0 5%;
 }
 
 fieldset {
@@ -221,15 +245,19 @@ fieldset {
     background-color: #f2e6b9;
     margin: 2.5em 0 2.5em 0;
 }
-#form input, #form textarea, #form select {
-    box-sizing: border-box;
-    border: 2px solid #71c2b9;
-    border-radius: 3px;
-    padding: 1em;
-    outline: none;
-    resize: none;
-}
-#form legend {
+
+/*removed #form prefix*/
+input, textarea {
+     box-sizing: border-box;
+     border: 2px solid #71c2b9;
+     border-radius: 3px;
+     padding: 1em;
+     outline: none;
+     resize: none;
+ }
+
+/*removed #form prefix*/
+legend {
     text-align: center;
     font-size: 1.5em;
     padding: 0 1.5em 0 1.5em;
@@ -237,18 +265,27 @@ fieldset {
     color: black;
 }
 
-#form input:focus, #form textarea:focus, #form select:focus{
+/*removed #form prefix*/
+input:focus, textarea:focus{
     border: 2px solid #ce4400;
 
 }
 
 .button:hover {
-    background-color: #762118;
+    background-color: #00A147;
+}
+
+.buttons { /* Field set buttons */
+    border: hidden;
 }
 
 .button {
-    background-color: #9a4021;
+    color: white;
+    border: none;
+    background-color: #00a147;
     width: 50%;
+    font-size: larger;
+
 }
 
 .radio {
@@ -276,7 +313,6 @@ textarea {
     text-align: left;
 }
 
-
 .check-field {
     margin: 0 0 1.25em 7.5em;
     border: none;
@@ -286,19 +322,18 @@ textarea {
 
 .radio-field {
     margin: 0 0 0 0;
-    border: none;
-    float: left;
     text-align: center;
     color: black;
 }
 
-#form section h3 {
-    margin: 1em auto auto 1em;
-    border-bottom: 2px solid black;
-}
-
 #errors ol li{
     color: #ff5555;
+
+}
+
+#errors h3{
+    color: #a03838;
+    text-decoration: underline;
 }
 
 #txtFirstName {
@@ -318,29 +353,29 @@ textarea {
 }
 
 #txtQuestions {
-    height: 5em;
-    width: 20em;
+    height: 10em;
+    width: 50%;
     vertical-align: top;
 }
 
 
-
-/* EVENTS PAGE */
+/* ---------------------- EVENTS PAGE ---------------------- */
 
 .event-view-content {
     width: 100%;
     text-align: center;
-
+    padding: 0 5% 0 5%;
+    align-items: center;
+    align-content: center;
 }
 
 .events-card {
     border: solid 2px #9a4021;
-    /*margin: 10px 10px 10px 10px;*/
+    margin: 10px 10px 10px 10px;
     background-color: #fff1b0;
     width: 420px;
     height: 500px;
-    display: inline-block;
-    align-items: center;
+    float: left;
 }
 
 .events-card-img {

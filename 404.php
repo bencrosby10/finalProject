@@ -1,7 +1,7 @@
 <?php
     include ("top.php");
 ?>
-<article class="events">
+<article class="events" style="text-align: center">
     <img src="images/error.jpeg" alt="404 Error">
 
 

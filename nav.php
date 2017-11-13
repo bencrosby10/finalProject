@@ -38,7 +38,7 @@
                 print ' activePage ';
             }
             print '">';
-            print '<a href="jrsailing.php">JR Sailing</a>';
+            print '<a href="jrsailing.php">JR.Sailing</a>';
         print '</li>';
 
         print '<li class="';

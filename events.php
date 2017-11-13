@@ -21,7 +21,6 @@
         </div>
 
         <div class="events-card">
-
             <div class="events-card-img">
                 <img class="events-card-img" src="images/ACS-regatta.png" alt="ACS-Regatta">
             </div>
@@ -32,21 +31,22 @@
                     The MHYC is shooting for 40 boats at this year’s event. All sailors have the opportunity to get directly involved & raise money to cure cancer. This event will start with an island race in the morning and be followed by a live auction and cook out at the club. Please distribute this to all your sailing friends to inform and access all potential competitors. The more fundraisers, the more money and awareness for The American Cancer Society!
                 </p>
             </div>
-
         </div>
 
         <div class="events-card">
-
-            <div class="events-card-img">
-                <img class="events-card-img" src="images/lobster-dinner.png" alt="Annual-Lobster-Dinner">
-            </div>
-            <div class="events-card-text">
-                <h2 class="events-card-title">Annual Lobster Dinner!</h2>
-                <h4 class="events-card-subtitle">Saturday August 19<sup>th</sup><br>5:00 PM</h4>
-                <p class="events-card-tags">At only $25, it's a great way of showing support for Maple Hill Junior Sailing, while having an amazing meal and a fun evening. Bring family and friends (children welcome, of course !) Meet old friends, make new ones. See how far MHJS has come, appreciate the work of staff and volunteers, and enjoy! Get your tickets by emailing <a href="mailto:events@mhyc.com">events@mhyc.com</a> The event will be held at the Maple Hill Yacht Club (As always, non-seafood choices offered and BYOB.)
-                </p>
-            </div>
-
+                <div class="events-card-img">
+                    <a href="dinner-form.php">
+                        <img class="events-card-img" src="images/lobster-dinner.png" alt="Annual-Lobster-Dinner">
+                    </a>
+                </div>
+                <div class="events-card-text">
+                    <a href="dinner-form.php">
+                        <h2 class="events-card-title">Annual Lobster Dinner!</h2>
+                    </a>
+                    <h4 class="events-card-subtitle">Saturday August 19<sup>th</sup><br>5:00 PM</h4>
+                    <p class="events-card-tags">At only $25, it's a great way of showing support for Maple Hill Junior Sailing, while having an amazing meal and a fun evening. Bring family and friends (children welcome, of course !) Meet old friends, make new ones. See how far MHJS has come, appreciate the work of staff and volunteers, and enjoy! Get your tickets by creating a reservation <a href="dinner-form.php">HERE</a> The event will be held at the Maple Hill Yacht Club (As always, non-seafood choices offered and BYOB.)
+                    </p>
+                </div>
         </div>
 
         <div class="events-card">
