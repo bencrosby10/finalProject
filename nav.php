@@ -26,6 +26,22 @@
         print '</li>';
 
         print '<li class="';
+        if ($path_parts['filename'] == "gallery") {
+            print ' activePage ';
+        }
+        print '">';
+        print '<a href="gallery.php">Gallery</a>';
+        print '</li>';
+
+        print '<li class="';
+            if ($path_parts['filename'] == "jrsailing") {
+                print ' activePage ';
+            }
+            print '">';
+            print '<a href="jrsailing.php">JR Sailing</a>';
+        print '</li>';
+
+        print '<li class="';
             if ($path_parts['filename'] == "form") {
                 print ' activePage ';
             }

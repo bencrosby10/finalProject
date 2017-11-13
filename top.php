@@ -2,16 +2,42 @@
     $phpSelf = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
 
     $path_parts = pathinfo($phpSelf);
+
+    $domain = "//";
+
+    $server = htmlentities($_SERVER['SERVER_NAME'], ENT_QUOTES, 'UTF-8');
+
+    $domain .= $server;
+
+    $debug = false;
+
+    if (isset($_GET["debug"])) {
+        $debug = true;
+    }
+
+
+    print  PHP_EOL . '<!-- include libraries -->' . PHP_EOL;
+
+    require_once("lib/security.php");
+
+
+    if ($path_parts['filename'] == "form") {
+        print PHP_EOL . '<!-- include form libraries -->' . PHP_EOL;
+        include "lib/validation-functions.php";
+        include 'lib/mail-message.php';
+    }
+
+    print  PHP_EOL . '<!-- finished including libraries -->' . PHP_EOL;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-    <title>Sailing</title>
+    <title>Maple Hill YC</title>
 
     <meta charset="utf-8">
     <meta name="author" content="Hunter Jensen - Ben Crosby">
-    <meta name="description" content="------Blank Sailing Website-----">
+    <meta name="description" content="maple hill yacht club website">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
