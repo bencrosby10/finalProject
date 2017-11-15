@@ -21,9 +21,13 @@
     require_once("lib/security.php");
 
 
-    if ($path_parts['filename'] == "form" or $path_parts['filename'] == "dinner-form" or $path_parts['filename'] == "apply") {
+    if ($path_parts['filename'] == "form" or $path_parts['filename'] == "dinner-form" or $path_parts['filename'] == "apply" or $path_parts['filename'] == "events-form") {
         print PHP_EOL . '<!-- include form libraries -->' . PHP_EOL;
         include "lib/validation-functions.php";
+        include 'lib/mail-message.php';
+    }
+
+    if($path_parts['filename'] == "events") {
         include 'lib/mail-message.php';
     }
 

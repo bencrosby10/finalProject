@@ -1,7 +1,7 @@
 <?php
     include ("top.php");
 
-    print '<article class="form">';
+    print '<article class="events-form">';
 
     //%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^
     //
@@ -33,15 +33,22 @@
 
     $lastName = "";
 
-    $questions = "";
-
     $email = "";
 
     $phoneNumber = "";
 
-    $reason = "Questions";
+    $description = "";
 
-    $subscription = "Yes";
+    $date = "";
+
+    $title = "";
+
+    $confirmCode = '';
+
+    $confirmCodeINIT = substr(md5(microtime()),rand(0,26),5);
+
+    $confirmCode = $confirmCodeINIT;
+
 
 
     //%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^
@@ -57,13 +64,14 @@
 
     $emailERROR = false;
 
-    $subscriptionERROR = false;
-
-    $questionsERROR = false;
-
-    $reasonERROR = false;
-
     $phoneERROR = false;
+
+    $descriptionERROR = false;
+
+    $titleERROR = false;
+
+    $dateERROR = false;
+
 
     ////%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^
     //
@@ -80,9 +88,6 @@
     // have we mailed the information to the user?
 
     $mailed = false;
-
-
-    $totalChecked = 0;
 
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     //
@@ -119,17 +124,25 @@
         $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
         $dataRecord[] = $email;
 
-        $subscription = htmlentities($_POST["radSubscription"], ENT_QUOTES, "UTF-8");
-        $dataRecord[] = $subscription;
-
-        $reason = htmlentities($_POST["lstReason"],ENT_QUOTES,"UTF-8");
-        $dataRecord[] = $reason;
-
-        $questions = htmlentities($_POST["txtQuestions"], ENT_QUOTES, "UTF-8");
-        $dataRecord[] = $questions;
-
         $phoneNumber = htmlentities($_POST["txtPhoneNumber"],ENT_QUOTES,"UTF-8");
         $dataRecord[] = $phoneNumber;
+
+        $description = htmlentities($_POST["txtDescription"], ENT_QUOTES, "UTF-8");
+        $dataRecord[] = $description;
+
+        $title = htmlentities($_POST["txtTitle"], ENT_QUOTES, "UTF-8");
+        $dataRecord[] = $title;
+
+        $date = htmlentities($_POST["dtsDate"], ENT_QUOTES, "UTF-8");
+        $dataRecord[] = $date;
+
+        $dataRecord[] = false;
+
+        $dataRecord[] = $confirmCode;
+
+
+
+
 
 
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -164,28 +177,20 @@
             $emailERROR = true;
         }
 
-        if($subscription != "Yes" AND $subscription != "No" AND $subscription != "Important"){
-            $errorMsg[] = "Please choose a subscription method";
-            $subscriptionERROR = true;
+        if(!verifyPhone($phoneNumber)) {
+            $errorMsg[] = "Your phone number appears to be incorrect";
+            $phoneERROR = true;
         }
 
-        if($reason == ""){
-            $errorMsg[] = "Please select a reason for contact";
-            $reasonERROR = true;
+        if ($description == "") {
+            $errorMsg[] = "You need to give a response";
+            $descriptionERROR = true;
+        } elseif(!verifyAlphaNum($description)) {
+            $errorMsg[] = "Your response appears to have extra characters that are not allowed";
+            $descriptionERROR = true;
         }
 
-        if ($questions == "") {
-            $errorMsg[] = "You need to specify a question";
-            $questionsERROR = true;
-        } elseif(!verifyAlphaNum($questions)) {
-            $errorMsg[] = "Your question appears to have extra characters that are not allowed";
-            $questionsERROR = true;
-        }
 
-//        if(!verifyPhone($phoneNumber)) { //TODO: FIX THIS FOR LATER
-//            $errorMsg[] = "Your phone number appears to be incorrect";
-//            $phoneERROR = true;
-//        }
 
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //
@@ -194,7 +199,6 @@
         // Process for when the form passes validation (the errorMsg array is empty)
 
         if(!$errorMsg) {
-
 
             if ($debug) {
                 print PHP_EOL . "<p>Form is valid</p>";
@@ -207,7 +211,7 @@
             // This block saves the data to a CSV file.
 
             $myFolder = 'data/';
-            $myFileName = 'registration';
+            $myFileName = 'events';
             $fileExt = '.csv';
 
             $filename = $myFolder . $myFileName . $fileExt;
@@ -226,21 +230,19 @@
             // SECTION: 2f Create message
             //
             // build a message to display on the screen in section 3a and to mail
-            // to the person filling out the form (section 2g).
+            // to the person filling out the form (section 2g).'
 
-            $message = '<h1>Maple Hill Yacht Club | Contact</h1>';
+            $message = '<h1>Maple Hill Yacht Club | Submit Event</h1>';
 
-            $message .= '<p>Thank-you, ' . ucfirst($firstName) . " " . ucfirst($lastName) . "<br>" . "We will respond to your email shortly<p>";
+            $message .= '<p>Thank-you, ' . ucfirst($firstName) . " " . ucfirst($lastName) . " for your event submission. We will get back to you shortly if your event is accepted</p>";
+            $message .= "<p>Check your email often for a response</p>";
             $message .= "<p>Sincerely, Maple Hill Yacht Club</p>";
 
-
-            $message .= '<h3>Your Information</h3>';
+            $message .= '<h2>Your Information</h2>';
 
             foreach ($_POST as $htmlName => $value) {
 
-
-
-                if ($htmlName != "btnSubmit") {
+                if ($htmlName != "btnSubmit") { //TODO: Remove confirm code and accepted values
 
                     $message .= '<p>';
                     $camelCase = preg_split('/(?=[A-Z])/', substr($htmlName, 3));
@@ -250,9 +252,13 @@
 
                     }
                     $message .= ' = ' . htmlentities($value, ENT_QUOTES, "UTF-8") . '</p>';
-
                 }
             }
+
+
+
+
+
             //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             //
             // SECTION: 2g Mail to user
@@ -263,18 +269,21 @@
             $to = $email;
             $cc = '';
             $bcc = '';
-            $from = 'contact@mhyc.com';
+            $from = 'events@mhyc.com';
 
-            $subject = 'Maple Hill Yacht Club: Contact';
+            $subject = 'Maple Hill YC: Submit Event';
 
             $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
 
+
             if($mailed) {
-                $adminMessage = "<h1>New submission from Maple Hill YC contact form.....";
+                $adminMessage = "<h1>New submission from Maple Hill YC Events form form ..... be sure to check their event and click their event below";
+                $adminMessage .="<a href='https://hjensen3.w3.uvm.edu/cs008/final/events.php?confirmCode=". $confirmCode . "'><button>Confirm the event here</button></a>";
                 $adminMessage .= "<p>-----------------------------------------------------</p><p> </p><p> </p>";
                 $adminMessage .= $message;
 
-                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Contact", $adminMessage);
+                //sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Event submitted", $adminMessage);
+                sendMail("hjensen3@uvm.edu", $cc, $bcc, $from, "Maple Hill YC: New Event submitted", $adminMessage);
             }
 
         }
@@ -294,19 +303,15 @@
         // SECTION 3a.
         //
 
-        print '<h2>Contact</h2>';
+        print '<h2>Submit a new Event</h2>';
 
         if (isset($_POST["btnSubmit"]) AND empty($errorMsg)) {
-            print "<h3>Thankyou for your question, we will respond shortly</h3>";
+            print "<h3>Thank-you for your submission, be sure to check your email often!</h3>";
             print "<p>For your records, a copy of this data has been sent:</p>";
             print "<p>To: " . $email . "</p>";
 
         } else {
-            print '<h3>Do you have any questions? Comments? Concerns?</h3>';
-
-
-
-
+            print '<h3>Please fill out the event form</h3>';
 
             //#################################
             //
@@ -315,7 +320,7 @@
 
             if($errorMsg) {
                 print '<div id="errors">' . PHP_EOL;
-                print "<h3>Your form has the following errors!</h3>" . PHP_EOL;
+                print "<h3>Your submission has the following errors!</h3>" . PHP_EOL;
                 print '<ol>' . PHP_EOL;
                 foreach ($errorMsg as $error) {
                     print '<li>' . $error . '</li>' . PHP_EOL;
@@ -362,7 +367,6 @@
                                value="<?php print ucfirst($lastName); ?>"
                         >
                     </p>
-
                     <p>
                         <label class="required text-field" for="txtEmail">Email</label>
                         <input
@@ -385,66 +389,25 @@
                 </fieldset>
 
                 <fieldset>
-                    <legend>Question</legend>
-                    <h3>Questions? Comments? Concerns?</h3>
+                    <legend>Event Details</legend>
+
+                    <h3>Please, give your event a short title</h3>
                     <p>
-                    <textarea <?php if ($questionsERROR) print 'class="mistake"'; ?> id="txtQuestions" name="txtQuestions" onfocus="this.select()" tabindex="200"><?php print $questions; ?></textarea>
-                </p>
-
-                <h3>Specify a reason for contact</h3>
-                <p class="listbox <?php if ($reasonERROR) print ' mistake'; ?>">
-                    <select id="lstReason"
-                            name="lstReason"
-                            tabindex="320" >
-                        <option <?php if($reason=="Questions") print " selected "; ?>
-                                value="Questions">Questions</option>
-
-                        <option <?php if($reason=="More Information") print " selected "; ?>
-                                value="More Information">More Information</option>
-
-                        <option <?php if($reason=="News") print " selected "; ?>
-                                value="News">News</option>
-                        <option <?php if($reason=="Other") print " selected "; ?>
-                                value="Other">Other</option>
-                    </select>
-                </p>
-                </fieldset>
-
-
-                <fieldset class="radio <?php if ($subscriptionERROR) print ' mistake'; ?>">
-                    <legend>Subscribe</legend>
-                    <h3>Would you like to subscribe to more information?</h3>
-                    <p>
-                        <label class="radio-field">
-                            <input type="radio"
-                                   id="radSubscribeYes"
-                                   name="radSubscription"
-                                   value="Yes"
-                                   tabindex="572"
-                                <?php if ($subscription == "Yes") print ' checked="checked" '; ?>>
-                            Yes</label>
+                        <textarea <?php if ($titleERROR) print 'class="mistake"'; ?> id="txtTitle" name="txtTitle"  maxlength="15" onfocus="this.select()" tabindex="200"><?php print $title; ?></textarea>
                     </p>
 
+
+                    <h3>Please, give your event a description</h3>
                     <p>
-                        <label class="radio-field">
-                            <input type="radio"
-                                   id="radSubscribeNo"
-                                   name="radSubscription"
-                                   value="No"
-                                   tabindex="582"
-                                <?php if ($subscription == "No") print ' checked="checked" '; ?>>
-                            No</label>
+                        <textarea <?php if ($descriptionERROR) print 'class="mistake"'; ?> id="txtDescription" name="txtDescription" maxlength="200" onfocus="this.select()" tabindex="210"><?php print $description; ?></textarea>
                     </p>
+
+                    <h3>Please, specify a date for your event</h3>
+
                     <p>
-                        <label class="radio-field">
-                            <input type="radio"
-                                   id="radSubscribeImportant"
-                                   name="radSubscription"
-                                   value="Important"
-                                   tabindex="592"
-                                <?php if ($subscription == "Important") print ' checked="checked" '; ?>>
-                            Important updates only</label>
+                        <input type="datetime-local" id="dtsDate" name="dtsDate" onfocus="this.select()" tabindex="220" value="<?php print $date; ?>">
                     </p>
+
                 </fieldset>
 
                 <fieldset class="buttons">

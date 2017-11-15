@@ -147,6 +147,11 @@
         $age = htmlentities($_POST["lstAge"],ENT_QUOTES,"UTF-8");
         $dataRecord[] = $age;
 
+        $phoneNumber = htmlentities($_POST["txtPhoneNumber"],ENT_QUOTES,"UTF-8");
+        $dataRecord[] = $phoneNumber;
+
+
+
 
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //
@@ -217,10 +222,10 @@
             $positionERROR = true;
         }
 
-//        if(!verifyPhone($phoneNumber)) { //TODO: FIX THIS FOR LATER
-//            $errorMsg[] = "Your phone number appears to be incorrect";
-//            $phoneERROR = true;
-//        }
+        if(!verifyPhone($phoneNumber)) {
+            $errorMsg[] = "Your phone number appears to be incorrect";
+            $phoneERROR = true;
+        }
 
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //
@@ -307,7 +312,11 @@
 
 
             if($mailed) {
-                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Application", $message);
+                $adminMessage = "<h1>New submission from Maple Hill YC Apply form form..... be sure to check their application!";
+                $adminMessage .= "<p>-----------------------------------------------------</p><p> </p><p> </p>";
+                $adminMessage .= $message;
+
+                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Application", $adminMessage);
 
 
                 if($age == "less16") {

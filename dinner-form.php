@@ -174,6 +174,9 @@
             $dataRecord[] = ""; //Include it into array if not there when look at weather for formatting later
         }
 
+        $phoneNumber = htmlentities($_POST["txtPhoneNumber"],ENT_QUOTES,"UTF-8");
+        $dataRecord[] = $phoneNumber;
+
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //
         // SECTION: 2c Validation
@@ -221,10 +224,10 @@
             $weatherERROR = true;
         }
 
-//        if(!verifyPhone($phoneNumber)) { //TODO: FIX THIS FOR LATER
-//            $errorMsg[] = "Your phone number appears to be incorrect";
-//            $phoneERROR = true;
-//        }
+        if(!verifyPhone($phoneNumber)) { //TODO: FIX THIS FOR LATER
+            $errorMsg[] = "Your phone number appears to be incorrect";
+            $phoneERROR = true;
+        }
 
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //
