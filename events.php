@@ -77,7 +77,18 @@
             </div>
 
         </div>
-
+<div class="events-card">
+            <div class="events-card-img">
+                <img class="events-card-img" src="images/ACS-regatta.png" alt="ACS-Regatta">
+            </div>
+            <div class="events-card-text">
+                <h2 class="events-card-title">Youth Regatta (W.A.R.)</h2>
+                <h4 class="events-card-subtitle">8:00am- 3:00pm Saturday July 19<sup>th</sup><br>9:00 am - 12:00pm</h4>
+                <p class="events-card-tags">The Wicked Awesome Regatta (W.A.R.) is organized and Hosted by the Maple Hill Yacht club Junior Sailing program every July. Youth sailors and youth sailing organizations from across New England, New York, and adjacent regions always ensure that the W.A.R. is a welcoming, spirited competition with a fun time had by all. The Maple Hill yacht Club has generously provided the venue for the event for a number of years.  The next W.A.R. is scheduled for July 19, 2018.  For more information, email us at the juniorsailing@mhyc.com
+                    
+                </p>
+            </div>
+        </div>
     </div>
 
 
