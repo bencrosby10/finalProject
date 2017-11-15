@@ -77,7 +77,8 @@
             </div>
 
         </div>
-<div class="events-card">
+
+        <div class="events-card">
             <div class="events-card-img">
                 <img class="events-card-img" src="images/ACS-regatta.png" alt="ACS-Regatta">
             </div>
