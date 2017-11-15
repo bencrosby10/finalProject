@@ -52,7 +52,7 @@
         <div class="events-card">
 
             <div class="events-card-img">
-                <img class="events-card-img" src="images/fall-meeting.png" alt="Annual-Meeting ">
+                <img class="events-card-img" src="images/meeting1.jpg" alt="Annual-Meeting ">
             </div>
             <div class="events-card-text">
                 <h2 class="events-card-title">MHYC Annual Meeting Dinner</h2>
