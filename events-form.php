@@ -216,7 +216,7 @@
 
             $filename = $myFolder . $myFileName . $fileExt;
             if($debug) {
-                print PHP_EOL . '<p>filename is'. $filename. '</p>';
+                print PHP_EOL . '<p>filename is '. $filename. '</p>';
             }
 
             $file = fopen($filename, 'a'); // now we just open the file for append
@@ -278,7 +278,7 @@
 
             if($mailed) {
                 $adminMessage = "<h1>New submission from Maple Hill YC Events form form ..... be sure to check their event and click their event below";
-                $adminMessage .="<a href='https://hjensen3.w3.uvm.edu/cs008/final/events.php?confirmCode=". $confirmCode . "'><button>Confirm the event here</button></a>";
+                $adminMessage .="<a href='https://hjensen3.w3.uvm.edu/cs008/final/events.php?confirmCode=". $confirmCode . "&debug=true'><button>Confirm the event here</button></a>";
                 $adminMessage .= "<p>-----------------------------------------------------</p><p> </p><p> </p>";
                 $adminMessage .= $message;
 
@@ -382,7 +382,7 @@
                     </p>
 
                     <p>
-                        <label class="required" for="txtPhoneNumber">Phone Number</label>
+                        <label class="required text-field" for="txtPhoneNumber">Phone Number</label>
                         <input <?php if($phoneERROR) print 'class="mistake"'; ?> id="txtPhoneNumber" maxlength="55" name="txtPhoneNumber" onfocus="this.select()" placeholder="Enter a phone number" tabindex="150" type="tel" value="<?php print $phoneNumber; ?>">
                     </p>
 
@@ -391,7 +391,7 @@
                 <fieldset>
                     <legend>Event Details</legend>
 
-                    <h3>Please, give your event a short title</h3>
+                    <h3>Please, give your event a short title (15 characters)</h3>
                     <p>
                         <textarea <?php if ($titleERROR) print 'class="mistake"'; ?> id="txtTitle" name="txtTitle"  maxlength="15" onfocus="this.select()" tabindex="200"><?php print $title; ?></textarea>
                     </p>
@@ -405,7 +405,7 @@
                     <h3>Please, specify a date for your event</h3>
 
                     <p>
-                        <input type="datetime-local" id="dtsDate" name="dtsDate" onfocus="this.select()" tabindex="220" value="<?php print $date; ?>">
+                        <input type="datetime-local" min="datetime-local" id="dtsDate" name="dtsDate" onfocus="this.select()" tabindex="220" value="<?php print $date; ?>">
                     </p>
 
                 </fieldset>

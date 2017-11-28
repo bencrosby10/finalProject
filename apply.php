@@ -445,10 +445,28 @@
                     </p>
 
                     <p>
-                        <label class="required" for="txtPhoneNumber">Phone Number</label>
+                        <label class="required text-field" for="txtPhoneNumber">Phone Number</label>
                         <input <?php if($phoneERROR) print 'class="mistake"'; ?> id="txtPhoneNumber" maxlength="55" name="txtPhoneNumber" onfocus="this.select()" placeholder="Enter a phone number" tabindex="150" type="tel" value="<?php print $phoneNumber; ?>">
                     </p>
 
+                </fieldset>
+
+                <fieldset class="listbox" <?php if ($ageERROR) print ' mistake'; ?>>
+                    <h3>Please select your age range.</h3>
+                    <p>
+                        <select id="lstAge"
+                                name="lstAge"
+                                tabindex="320" >
+                            <option <?php if($age=="less16") print " selected "; ?>
+                                    value="less16">Less than 16 (0-15)</option>
+                            <option <?php if($age=="old16") print " selected "; ?>
+                                    value="old16">Older than 16 (16-17)</option>
+                            <option <?php if($age=="old18") print " selected "; ?>
+                                    value="old18">Older than 18 (18-20)</option>
+                            <option <?php if($age=="old21") print " selected "; ?>
+                                    value="old21">Older than 21 (> 21)</option>
+                        </select>
+                    </p>
                 </fieldset>
 
                 <fieldset>
@@ -473,24 +491,6 @@
                         <textarea <?php if ($elseQuestionERROR) print 'class="mistake"'; ?> id="txtelseQuestion" name="txtelseQuestion" onfocus="this.select()" tabindex="230"><?php print $elseQuestion; ?></textarea>
                     </p>
 
-                </fieldset>
-
-                <fieldset class="listbox" <?php if ($ageERROR) print ' mistake'; ?>>
-                    <h3>Please select your age range.</h3>
-                    <p>
-                        <select id="lstAge"
-                                name="lstAge"
-                                tabindex="320" >
-                            <option <?php if($age=="less16") print " selected "; ?>
-                                    value="less16">Less than 16 (0-15)</option>
-                            <option <?php if($age=="old16") print " selected "; ?>
-                                    value="old16">Older than 16 (16-17)</option>
-                            <option <?php if($age=="old18") print " selected "; ?>
-                                    value="old18">Older than 18 (18-20)</option>
-                            <option <?php if($age=="old21") print " selected "; ?>
-                                    value="old21">Older than 21 (> 21)</option>
-                        </select>
-                    </p>
                 </fieldset>
 
                 <fieldset class="radio <?php if ($positionERROR) print ' mistake'; ?>">

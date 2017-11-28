@@ -417,7 +417,7 @@
                     </p>
 
                     <p>
-                        <label class="required" for="txtPhoneNumber">Phone Number</label>
+                        <label class="required text-field" for="txtPhoneNumber">Phone Number</label>
                         <input <?php if($phoneERROR) print 'class="mistake"'; ?> id="txtPhoneNumber" maxlength="55" name="txtPhoneNumber" onfocus="this.select()" placeholder="Enter a phone number" tabindex="150" type="tel" value="<?php print $phoneNumber; ?>">
                     </p>
 

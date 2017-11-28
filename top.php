@@ -46,6 +46,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="styles/custom.css" type="text/css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Raleway" rel="stylesheet">
+    <link rel="SHORTCUT ICON" href="images/MHYC-burgee-tiny.png">
+
 
 </head>
 

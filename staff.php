@@ -4,7 +4,7 @@
 
 <article class="staff">
 
-    <h2>Maple Hill Staff</h2>
+    <h2>Staff</h2>
 
     <section class="row">
         <section class="column">
