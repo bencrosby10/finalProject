@@ -49,8 +49,9 @@ footer {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
-    padding: 55px 50px;
-    margin-top: 80px;
+    margin:0;
+    padding-top: 1%;
+    padding-bottom: 1%;
     text-align: center;
     font: normal 18px sans-serif;
     /*padding: 45px;*/
@@ -62,10 +63,6 @@ footer p {
 
 a {
     color: #c34139;
-}
-
-p {
-
 }
 
 h1 {
@@ -125,6 +122,20 @@ button:hover {
     border-top: #62514f thick;
 }
 
+.index h2 {
+    color: #fd614e;
+    font-weight: lighter;
+    text-decoration: underline;
+    text-decoration-color: dimgrey;
+}
+
+.jrSailing h4{
+    text-indent: 2em;
+}
+
+.jrSailing h5{
+    text-indent: 2em;
+}
 
 /* ----------------------  Staff page ---------------------- */
 
@@ -317,6 +328,7 @@ input:focus, textarea:focus{
 }
 
 .card-description {
+    overflow: auto;
     color: #000000;
     font-family: "Raleway", sans-serif;
     font-size: 13px;
@@ -327,6 +339,8 @@ input:focus, textarea:focus{
 .official-event-title {
     color: #fd614e;
 }
+
+
 
 
 /* ---------------------- CARD STYLES ---------------------- */
@@ -351,10 +365,18 @@ input:focus, textarea:focus{
         width: 100%;
         display: block;
     }
+    article.staff .card {
+        overflow: auto;
+        height: inherit;
+    }
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: rgba(180,180,180,0.51);
+}
+
+.current-event {
+    background-color: rgba(130,186,167,0.51);
 }
 
 .card-title {
@@ -367,20 +389,38 @@ input:focus, textarea:focus{
     padding: 0 3% 0 3%;
 }
 
+.container h2{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.container p{
+    padding-bottom: .5em;
+}
+
 .container::after {
     content: "";
     clear: both;
     display: table;
 }
 
-.sub-title {
+.staff .sub-title {
     text-align: center;
-    color: grey;
-    text-decoration: underline;
+    color: #fd614e;
+}
+
+.sub-title {
+    text-align:center;
 }
 
 .event-height{
     height: 318px
+}
+
+article.staff .card{
+    height: 750px;
+    overflow: auto;
+
 }
 
 
@@ -390,17 +430,25 @@ input:focus, textarea:focus{
     box-sizing: border-box;
 }
 
+#gallery h3 {
+    margin: 20px 0 20px 0;
+    text-align: center;
+    font-size: 30px;
+}
+
 section.gallery-item {
+    background-color: #d3dadd;
     border: 1px solid #ccc;
+    margin: 1% 1% 1% 1%;  /* 2% on each side */
 }
 
 section.gallery-item:hover {
-    border: 1px solid #777;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
-    /*width: 100%;*/
-    /*height: auto;*/
+    width: 100%;
+    height: auto;
 }
 
 p.description {
@@ -408,11 +456,11 @@ p.description {
     text-align: center;
 }
 
-
 section.responsive {
-    padding: 0 6px;
+    padding: 10px 10px 10px 10px;
     float: left;
-    width: 24.99999%;
+    width: 22.99999%; /* 24.999999% minus the width of each item */
+    /*width: 33.3333333%;*/
 }
 
 @media only screen and (max-width: 700px){
@@ -426,6 +474,10 @@ section.responsive {
     section.responsive {
         width: 100%;
     }
+}
+
+.normal-padding {
+    padding: 0 4% 0 4%;
 }
 
 

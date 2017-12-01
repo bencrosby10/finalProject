@@ -1,10 +1,4 @@
-<!--<footer>-->
-<!--    <img src="images/burgee.png" alt="Burgee Image" width="100" height="50">-->
-<!--    <p style="float: right">Design: Hunter Jensen & Ben Crosby</p>-->
-<!--    <p style="float: left">Images: Ben Crosby <i>(Unless noted)</i></p>-->
-<!--    <a href="sitemap.php">Sitemap</a>-->
-<!--</footer>-->
-
+<!-- Footer -->
 <footer class="footer-styles">
 
 
@@ -34,8 +28,12 @@
 
     <p class="footer-subtitle">Maple Hill Yacht Club &copy; 2017</p>
 
+    <p style="float: left">Content: Ben Crosby</p>
+
+    <p style="float: right">Design: <a href="https://bscrosby.w3.uvm.edu/cs008/me-explaining-rules.JPG">Ben Crosby</a> & <a href="https://hjensen3.w3.uvm.edu/cs008/sitemap.php">Hunter Jensen</p>
+
 </footer>
 
-</body> <!-- Ending from top -->
+</body>
 
-</html> <!-- Ending from top -->
+</html>

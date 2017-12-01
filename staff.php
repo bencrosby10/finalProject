@@ -35,7 +35,7 @@
                 <section class="container">
                     <h2>Spinnaker & Halyard</h2>
                     <p class="sub-title">Security</p>
-                    <p>These two just might be the friendliest security you’ll ever come across. When not doing security work these two enjoy hiking, swimming and playing in the snow</p>
+                    <p>These two just might be the friendliest security you’ll ever come across. When not doing security work these two enjoy hiking, swimming and playing in the snow.</p>
                 </section>
             </section>
         </section>

@@ -182,15 +182,26 @@
             $phoneERROR = true;
         }
 
+        if ($title == "") {
+            $errorMsg[] = "You need to give a title";
+            $titleERROR = true;
+        } elseif(!verifyAlphaNum($title)) {
+            $errorMsg[] = "Your title appears to have extra characters that are not allowed";
+            $titleERROR = true;
+        }
+
         if ($description == "") {
-            $errorMsg[] = "You need to give a response";
+            $errorMsg[] = "You need to give a description";
             $descriptionERROR = true;
         } elseif(!verifyAlphaNum($description)) {
-            $errorMsg[] = "Your response appears to have extra characters that are not allowed";
+            $errorMsg[] = "Your description appears to have extra characters that are not allowed";
             $descriptionERROR = true;
         }
 
-
+        if (strtotime($date) < time()) {
+            $errorMsg[] = "Your date seems to be invalid";
+            $dateERROR = true;
+        }
 
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //
@@ -405,7 +416,7 @@
                     <h3>Please, specify a date for your event</h3>
 
                     <p>
-                        <input type="datetime-local" min="datetime-local" id="dtsDate" name="dtsDate" onfocus="this.select()" tabindex="220" value="<?php print $date; ?>">
+                        <input <?php if ($dateERROR) print 'class="mistake"'; ?> type="datetime-local" min="datetime-local" id="dtsDate" name="dtsDate" onfocus="this.select()" tabindex="220" value="<?php print $date; ?>">
                     </p>
 
                 </fieldset>

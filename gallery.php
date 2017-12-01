@@ -30,77 +30,66 @@
 ?>
 <article class="gallery">
 
-    <h2>Gallery Page</h2>
+    <h2>Gallery</h2>
 
+    <section class="normal-padding">
 
-    <h3>ACS Regatta</h3>
-    <?php
+        <?php
 
-        //Categorey, location, alt, description
-        foreach ($imageData as $imageDatum) {
-            if($imageDatum[0] == "regatta") {
-                print "<section class=\"gallery-item responsive\">";
-                print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
-                print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
-                print "</a>";
-                print "<p class='description'>". $imageDatum[3] . "</p>";
-                print "</section>" . PHP_EOL;
+            //Categorey, location, alt, description
+            foreach ($imageData as $imageDatum) {
+                if($imageDatum[0] == "regatta") {
+                    print "<section class=\"gallery-item responsive\">";
+                    print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
+                    print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
+                    print "</a>";
+                    print "<p class='description'>". $imageDatum[3] . "</p>";
+                    print "</section>" . PHP_EOL;
+                }
+
             }
 
-        }
-    ?>
+            //Categorey, location, alt, description
+            foreach ($imageData as $imageDatum) {
+                if($imageDatum[0] == "lobster") {
+                    print "<section class=\"gallery-item responsive\">";
+                    print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
+                    print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
+                    print "</a>";
+                    print "<p class='description'>". $imageDatum[3] . "</p>";
+                    print "</section>" . PHP_EOL;
+                }
 
-    <h3>Lobster Dinner</h3>
-    <?php
+            }
 
-    //Categorey, location, alt, description
-    foreach ($imageData as $imageDatum) {
-        if($imageDatum[0] == "lobster") {
-            print "<section class=\"gallery-item responsive\">";
-            print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
-            print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
-            print "</a>";
-            print "<p class='description'>". $imageDatum[3] . "</p>";
-            print "</section>" . PHP_EOL;
-        }
+            //Categorey, location, alt, description
+            foreach ($imageData as $imageDatum) {
+                if($imageDatum[0] == "meeting") {
+                    print "<section class=\"gallery-item responsive\">";
+                    print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
+                    print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
+                    print "</a>";
+                    print "<p class='description'>". $imageDatum[3] . "</p>";
+                    print "</section>" . PHP_EOL;
+                }
 
-    }
-    ?>
+            }
+            //Categorey, location, alt, description
+            foreach ($imageData as $imageDatum) {
+                if($imageDatum[0] == "youth") {
+                    print "<section class=\"gallery-item responsive\">";
+                    print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
+                    print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
+                    print "</a>";
+                    print "<p class='description'>". $imageDatum[3] . "</p>";
+                    print "</section>" . PHP_EOL;
+                }
 
+            }
 
-    <h3>Meeting</h3>
-    <?php
+        ?>
 
-    //Categorey, location, alt, description
-    foreach ($imageData as $imageDatum) {
-        if($imageDatum[0] == "meeting") {
-            print "<section class=\"gallery-item responsive\">";
-            print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
-            print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
-            print "</a>";
-            print "<p class='description'>". $imageDatum[3] . "</p>";
-            print "</section>" . PHP_EOL;
-        }
-
-    }
-    ?>
-
-    <h3>Youth Sailing</h3>
-    <?php
-
-    //Categorey, location, alt, description
-    foreach ($imageData as $imageDatum) {
-        if($imageDatum[0] == "youth") {
-            print "<section class=\"gallery-item responsive\">";
-            print "<a target='_blank' href=\"images/" . $imageDatum[1] . "\">";
-            print "<img src=\"images/". $imageDatum[1] . "\" alt=\"" . $imageDatum[2] . "\" width=\"600\" height=\"400\" >";
-            print "</a>";
-            print "<p class='description'>". $imageDatum[3] . "</p>";
-            print "</section>" . PHP_EOL;
-        }
-
-    }
-    ?>
+    </section>
 
 </article>
 <?php

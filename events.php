@@ -177,9 +177,7 @@
                             <img class="events-card-img" src="images/lobster-dinner.png" alt="Annual-Lobster-Dinner">
                         </a>
                     </section>
-                    <a href="dinner-form.php">
-                        <h2 class="card-title official-event-title">Annual Lobster Dinner!</h2>
-                    </a>
+                    <h2 class="card-title official-event-title">Annual Lobster Dinner!</h2>
                     <h4 class="subtitle">Saturday August 18<sup>th</sup> 2018<br>5:00pm</h4>
                     <p class="card-description">At only $25, it's a great way of showing support for Maple Hill Junior Sailing, while having an amazing meal and a fun evening. Bring family and friends (children welcome, of course !) Meet old friends, make new ones. See how far MHJS has come, appreciate the work of staff and volunteers, and enjoy! Get your tickets by creating a reservation <a href="dinner-form.php">HERE</a> The event will be held at the Maple Hill Yacht Club (As always, non-seafood choices offered and BYOB.)
                     </p>
@@ -205,7 +203,7 @@
             <section class="card">
                 <section class="container events-card">
                     <section class="events-card-img">
-                        <img class="events-card-img" src="" alt="PIC OF BURGEE (TRANSPARENT)">
+                        <img class="events-card-img" src="images/MHYC-burgee-small.png" alt="mhyc-burgee (transparent)">
                     </section>
                     <h2 class="card-title official-event-title">Fall Project Day at the club</h2>
                     <h4 class="subtitle">Saturday October 13<sup>th</sup>2018<br>8:00am - 12:00pm</h4>
@@ -222,7 +220,7 @@
                     <section class="events-card-img">
                         <img class="events-card-img" src="images/youth4.jpg" alt="youth-regatta">
                     </section>
-                        <h2 class="card-title">Youth Regatta (W.A.R.)</h2>
+                        <h2 class="card-title official-event-title">Youth Regatta (W.A.R.)</h2>
                         <h4 class="subtitle">Saturday July 19<sup>th</sup> 2018<br>8:00am- 3:00pm</h4>
                         <p class="card-description">The Wicked Awesome Regatta (W.A.R.) is organized and Hosted by the Maple Hill Yacht club Junior Sailing program every July. Youth sailors and youth sailing organizations from across New England, New York, and adjacent regions always ensure that the W.A.R. is a welcoming, spirited competition with a fun time had by all. The Maple Hill yacht Club has generously provided the venue for the event for a number of years.  The next W.A.R. is scheduled for July 19, 2018.  For more information, email us at the <a href="mailto:bscrosby10@uvm.edu">juniorsailing@mhyc.com</a></p>
                 </section>
@@ -238,20 +236,32 @@
                 if(filesize($filename) == 0) {
                     print '<h2>There are currently no events at this time</h2>';
                 } else {
+
                     foreach ($eventData as $eventDatum) {
                         if ($eventDatum[0] != "") {  //the end of file would be a ""
-                            if ($eventDatum[7]) {
-                                print '<section class="column">';
-                                print '<section class="card event-height">';
-                                print '<section class="container">';
-                                print  "<h2 class='card-title'>" . $eventDatum[5] . "</h2>"; //Title
-                                $time = strtotime($eventDatum[6]);
-                                $newFormat = date('F j\, Y  \- g:i A', $time);
-                                print  "<p class='sub-title'>" . $newFormat . "</p>"; //Date
-                                print  "<p>" . $eventDatum[4] . "</p>"; //Description
-                                print '</section>';
-                                print '</section>';
-                                print '</section>';
+
+                            $time = strtotime($eventDatum[6]);
+
+                            if($time > strtotime('-1 day', time())) { // Checks if the event is old
+                                if ($eventDatum[7]) { // Checks to see if the event is conirmed
+                                    print '<section class="column">';
+
+
+                                    if (date('m/d/y', $time) == date('m/d/y', time())) {
+                                        print '<section class="card event-height current-event">';
+                                    } else {
+                                        print '<section class="card event-height">';
+                                    }
+
+                                    print '<section class="container">';
+                                    print  "<h2 class='card-title'>" . $eventDatum[5] . "</h2>"; //Title
+
+                                    print  "<p class='sub-title'>" . date('F j\, Y  \- g:i A', $time) . "</p>"; //Date
+                                    print  "<p>" . $eventDatum[4] . "</p>"; //Description
+                                    print '</section>';
+                                    print '</section>';
+                                    print '</section>';
+                                }
                             }
                         }
                     }
