@@ -293,8 +293,8 @@
                 $adminMessage .= "<p>-----------------------------------------------------</p><p> </p><p> </p>";
                 $adminMessage .= $message;
 
-                //sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Event submitted", $adminMessage);
-                sendMail("hjensen3@uvm.edu", $cc, $bcc, $from, "Maple Hill YC: New Event submitted", $adminMessage);
+                sendMail("bscrosby@uvm.edu", "hjensen3@uvm.edu", $bcc, $from, "Maple Hill YC: New Event submitted", $adminMessage);
+                //sendMail("hjensen3@uvm.edu", $cc, $bcc, $from, "Maple Hill YC: New Event submitted", $adminMessage);
             }
 
         }

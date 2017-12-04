@@ -37,7 +37,7 @@
 <html lang="en">
 <head>
 
-    <title>Maple Hill YC</title>
+    <title>Maple Hill YC | <?php print ucfirst($path_parts['filename'])?></title>
 
     <meta charset="utf-8">
     <meta name="author" content="Hunter Jensen - Ben Crosby">
