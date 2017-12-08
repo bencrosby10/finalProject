@@ -30,7 +30,7 @@
 
     <p style="float: left">Content: Ben Crosby</p>
 
-    <p style="float: right">Design: <a href="https://bscrosby.w3.uvm.edu/cs008/me-explaining-rules.JPG">Ben Crosby</a> & <a href="https://hjensen3.w3.uvm.edu/cs008/sitemap.php">Hunter Jensen</p>
+    <p style="float: right">Design: <a href="https://bscrosby.w3.uvm.edu/cs008/me-explaining-rules.JPG">Ben Crosby</a> & <a href="https://hjensen3.w3.uvm.edu/cs008/sitemap.php">Hunter Jensen</a></p>
 
 </footer>
 

@@ -358,8 +358,6 @@
     //
     ?>
 
-    <article id='main'>
-
         <?php
         //####################################
         //
@@ -419,7 +417,7 @@
                     </p>
                     <p>
                         <label class="required text-field" for="txtLastName">Last Name</label>
-                        <input autofocus <?php if($lastNameERROR) print 'class="mistake"'; ?>
+                        <input <?php if($lastNameERROR) print 'class="mistake"'; ?>
                                id="txtLastName"
                                maxlength="45"
                                name="txtLastName"

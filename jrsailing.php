@@ -17,7 +17,7 @@
     <p class="text-fit">If you are interested in Registering your child please email <a href="mailto:bscrosby10@uvm.edu">juniorsailing@mhyc.com</a> and we can start the registration process with you. </p>
 
 
-    <img class="img-fit" src="images/sailing-scedule.png">
+    <img class="img-fit" src="images/sailing-scedule.png" alt="Sailing-Schedule">
     
 
     <h2>Class Offerings</h2>

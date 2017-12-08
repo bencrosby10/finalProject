@@ -246,7 +246,6 @@
                                 if ($eventDatum[7]) { // Checks to see if the event is conirmed
                                     print '<section class="column">';
 
-
                                     if (date('m/d/y', $time) == date('m/d/y', time())) {
                                         print '<section class="card event-height current-event">';
                                     } else {
