@@ -189,7 +189,7 @@
             <section class="card">
                 <section class="container events-card">
                     <section class="events-card-img">
-                        <img class="events-card-img" src="images/meeting1.jpg" alt="Annual-Meeting ">
+                        <img class="events-card-img" src="images/meeting283.jpg" alt="Annual-Meeting ">
                     </section>
                     <h2 class="card-title official-event-title">MHYC Annual Meeting Dinner</h2>
                     <h4 class="subtitle">Friday October 12<sup>th</sup> 2018<br>6:00pm</h4>

@@ -3,6 +3,8 @@
 ?>
 <article class="jrSailing">
 
+
+
     <h2>Junior Sailing</h2>
 
     <h4>Youth sailing classes:</h4>
@@ -13,8 +15,9 @@
     
     <h4>Registration:</h4>
     <p class="text-fit">If you are interested in Registering your child please email <a href="mailto:bscrosby10@uvm.edu">juniorsailing@mhyc.com</a> and we can start the registration process with you. </p>
-    
-        
+
+
+    <img class="img-fit" src="images/sailing-scedule.png">
     
 
     <h2>Class Offerings</h2>
